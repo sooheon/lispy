@@ -717,7 +717,7 @@ Insert KEY if there's no command."
                                    "\C-d")
                        "{[(a\n~|   f)]}"))))
 
-  (let ((lispy-delete-atom-from-within t))
+  (let ((lispy-delete-sexp-from-within t))
     (should (string= (lispy-with "(|)" "\C-d") "|"))
     (should (string= (lispy-with "(foo|)" "\C-d") "|"))
     (should (string= (lispy-with "\"|\"" "\C-d") "|"))
@@ -801,7 +801,7 @@ Insert KEY if there's no command."
                    "(list |[1 2])"))
   (should (string= (lispy-with "#2A((a b) (0 1))|" "\C-?")
                    "|"))
-  (let ((lispy-delete-atom-from-within t))
+  (let ((lispy-delete-sexp-from-within t))
     (should (string= (lispy-with "(|)" "\C-?") "|"))
     (should (string= (lispy-with "(|foo)" "\C-?") "|"))
     (should (string= (lispy-with "\"|\"" "\C-?") "|"))
